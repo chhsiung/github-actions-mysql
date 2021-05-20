@@ -22,20 +22,7 @@ inputs:
     default: 3306
   rootPassword:
     description: 'The root user password'
-    required: false
-    default: ''
-  user:
-    description: 'The MySQL user to create'
-    required: false
-    default: ''
-  password:
-    description: 'The password for the MySQL user'
-    required: false
-    default: ''
-  database:
-    description: 'Name for the initial database to create'
-    required: false
-    default: 'TestDatabase'
+    required: true
   characterSet:
     description: 'The character set of MySQL server'
     required: false
