@@ -38,3 +38,14 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  steps:
+    - run: |
+        echo "Waiting for mysql"
+          until mysql -h"127.0.0.1" -P"INPUT_HOSTPORT" -uroot -p"$INPUT_ROOTPASSWORD" &> /dev/null
+          do
+            printf "."
+            sleep 1
+          done
+
+        echo -e "\nmysql ready"
+      shell: bash
