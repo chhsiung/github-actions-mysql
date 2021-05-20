@@ -16,7 +16,13 @@ jobs:
         sqlMode: STRICT_ALL_TABLES
     - name: Print running docker containers
       run: docker ps
-    - name : Check mysql settings
+    - name: Wait for mysql
+      run: |
+        while ! mysqladmin ping -h"127.0.0.1" -uroot -ppassword --silent; do
+            sleep 1
+        done
+      shell: bash
+    - name: Check mysql settings
       run: mysql -h 127.0.0.1 -uroot -ppassword -P 3306 -e "SELECT @@GLOBAL.sql_mode;"
   mysql8:
     runs-on: ubuntu-latest
@@ -30,11 +36,11 @@ jobs:
         rootPassword: password
     - name: Print running docker containers
       run: docker ps
-    - name: Sleep for 30 seconds
-      uses: jakejarvis/wait-action@master
-      with:
-        time: '30s'      
-    - name: mysql healthcheck
-      run: mysqladmin -h 127.0.0.1 ping -uroot -ppassword
+    - name: Wait for mysql
+      run: |
+        while ! mysqladmin ping -h"127.0.0.1" -uroot -ppassword --silent; do
+            sleep 1
+        done
+      shell: bash
     - name: Check mysql settings
       run: mysql -h 127.0.0.1 -uroot -ppassword -P 3306 -e "SELECT @@GLOBAL.sql_mode;"
