@@ -19,6 +19,8 @@ jobs:
         sqlMode: STRICT_ALL_TABLES
     - name: Print running docker containers
       run: docker ps
+    - name : Check mysql settings
+      run: mysql -h 127.0.0.1 -uroot -ppassword -e "SELECT @@GLOBAL.sql_mode;"
   mysql8:
     runs-on: ubuntu-latest
     steps:
@@ -34,3 +36,5 @@ jobs:
         rootPassword: password
     - name: Print running docker containers
       run: docker ps
+    - name : Check mysql settings
+      run: mysql -h 127.0.0.1 -uroot -ppassword -e "SELECT @@GLOBAL.sql_mode;"
