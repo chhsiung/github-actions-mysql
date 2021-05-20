@@ -5,8 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Shutdown existing MySQL
-      run: sudo service mysql stop
     - name: Set up MySQL
       uses: chhsiung/github-actions-mysql@IG-213
       with:
@@ -19,13 +17,11 @@ jobs:
     - name: Print running docker containers
       run: docker ps
     - name : Check mysql settings
-      run: mysql -h 127.0.0.1 -uroot -ppassword -e "SELECT @@GLOBAL.sql_mode;"
+      run: mysql -h 127.0.0.1 -uroot -ppassword -P 3306 -e "SELECT @@GLOBAL.sql_mode;"
   mysql8:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Shutdown existing MySQL
-      run: sudo service mysql stop
     - name: Set up MySQL
       uses: chhsiung/github-actions-mysql@IG-213
       with:
@@ -35,4 +31,4 @@ jobs:
     - name: Print running docker containers
       run: docker ps
     - name : Check mysql settings
-      run: mysql -h 127.0.0.1 -uroot -ppassword -e "SELECT @@GLOBAL.sql_mode;"
+      run: mysql -h 127.0.0.1 -uroot -ppassword -P 3306 -e "SELECT @@GLOBAL.sql_mode;"
