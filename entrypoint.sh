@@ -16,7 +16,9 @@ cmd="$cmd mysql:$INPUT_VERSION"
 cmd="$cmd --port=$INPUT_CONTAINERPORT"
 cmd="$cmd --character-set-server=$INPUT_CHARACTERSET"
 cmd="$cmd --collation-server=$INPUT_COLLATION"
-cmd="$cmd --sql-mode=$INPUT_SQLMODE"
+if [ -n "$INPUT_SQLMODE" ]; then
+  cmd="$cmd --sql-mode=$INPUT_SQLMODE"
+fi
 
 echo "CMD: $cmd"
 

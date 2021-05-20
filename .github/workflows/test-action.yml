@@ -11,7 +11,6 @@ jobs:
       uses: chhsiung/github-actions-mysql@IG-213
       with:
         version: 5.7
-        hostPort: 33069
         containerPort: 3306
         rootPassword: password
         characterSet: utf8mb4
@@ -31,7 +30,6 @@ jobs:
       uses: chhsiung/github-actions-mysql@IG-213
       with:
         version: 8
-        hostPort: 33070
         containerPort: 3306
         rootPassword: password
     - name: Print running docker containers
