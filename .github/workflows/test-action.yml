@@ -30,5 +30,11 @@ jobs:
         rootPassword: password
     - name: Print running docker containers
       run: docker ps
-    - name : Check mysql settings
+    - name: Sleep for 30 seconds
+      uses: jakejarvis/wait-action@master
+      with:
+        time: '30s'      
+    - name: mysql healthcheck
+      run: mysqladmin -h 127.0.0.1 ping -uroot -ppassword
+    - name: Check mysql settings
       run: mysql -h 127.0.0.1 -uroot -ppassword -P 3306 -e "SELECT @@GLOBAL.sql_mode;"
