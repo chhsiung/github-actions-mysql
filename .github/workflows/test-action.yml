@@ -6,7 +6,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Set up MySQL
-      uses: chhsiung/github-actions-mysql@IG-213
+      uses: chhsiung/github-actions-mysql@main
       with:
         version: 5.7
         containerPort: 3306
@@ -29,7 +29,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Set up MySQL
-      uses: chhsiung/github-actions-mysql@IG-213
+      uses: chhsiung/github-actions-mysql@main
       with:
         version: 8
         containerPort: 3306
