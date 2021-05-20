@@ -23,10 +23,7 @@ This GitHub action allows you to set up a MySQL instance via Docker.
         version: 5.7 # Optional, default version is `latest`
         hostPort: 33069 # Optional, default host port is `3306`
         containerPort: 3306 # Optional, default container port is `3306`
-        rootPassword: # Optional, default is `empty` (⚠️ required if you did not specify a user)
-        user: TestUser # Optional, default is `empty` (⚠️ required if you did not specify a root password)
-        password: TestPassword # Optional, default is `empty` (⚠️ required if you did specify a user)
-        database: TestDatabase # Optional, default is `TestDatabase`
+        rootPassword: # Required
         characterSet: utf8mb4 # Optional, default is `utf8mb4`
         collation: utf8mb4_general_ci # Optional, default is `utf8mb4_general_ci`
         sqlMode: NO_ENGINE_SUBSTITUTION # Optional, default is `empty`
