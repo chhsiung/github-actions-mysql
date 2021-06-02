@@ -35,6 +35,10 @@ inputs:
     description: 'The sql modes, fx. NO_ENGINE_SUBSTITUTION'
     required: false
     default: ''
+  dockerNetwork:
+    description: 'Docker network'
+    required: false
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'

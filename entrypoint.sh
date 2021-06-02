@@ -9,6 +9,10 @@ else
   exit 1
 fi
 
+if [ -n "$INPUT_DOCKERNETWORK" ]; then
+  cmd="$cmd --network $INPUT_DOCKERNETWORK"
+fi
+
 cmd="$cmd -d -p $INPUT_HOSTPORT:$INPUT_CONTAINERPORT"
 cmd="$cmd --hostname=mysql"
 cmd="$cmd --name=mysql"
